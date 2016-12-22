@@ -36,4 +36,4 @@ npm run build
 
 ### 效果图
 
-![http://p1.bqimg.com/567571/6f590d4d7a88787c.png](http://p1.bqimg.com/567571/6f590d4d7a88787c.png)
+![http://p1.bqimg.com/567571/bcd613976c736b35.png](http://p1.bqimg.com/567571/bcd613976c736b35.png)
