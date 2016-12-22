@@ -1,0 +1,11 @@
+blockquote:before,
+blockquote:after{
+    content:'';
+}
+.doc-archor li{
+    list-style:none;
+}
+.doc-archor ul{
+    padding-left:1em;
+    margin:0;
+}

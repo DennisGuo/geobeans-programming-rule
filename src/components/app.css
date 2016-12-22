@@ -1,0 +1,13 @@
+@media (max-width:840px){
+  .mdl-layout__header .mdl-navigation{
+    display: none;
+  }
+}
+/*.mdl-layout__header .mdl-navigation__link{
+  color:#ddd;
+}
+.mdl-layout__header .mdl-navigation__link.active,
+.mdl-layout__header .mdl-navigation__link:hover{
+  border-top: 10px solid rgb(255, 152, 0);
+  color:#fff;
+}*/
