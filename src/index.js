@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router,  hashHistory} from 'react-router'
 import Promise from 'promise-polyfill'; 
+import Router from 'react-router/lib/Router'
+import hashHistory from 'react-router/lib/hashHistory'
 
 import 'whatwg-fetch'
 import 'material-design-lite/material.css'

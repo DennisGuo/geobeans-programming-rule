@@ -25,21 +25,21 @@ class Doc extends Component {
             }
             return obj;
         });
-        console.log(archor);
+        // console.log(archor);
         this.setState({
             archor:archor
         });
     }
 
-    loadMarkdown(name) {
+    loadMd(name) {
         if(name){
             let url = '/docs/' + name;
-            console.log("fetch:%s", url);
+            // console.log("fetch:%s", url);
             fetch(url).then((response) => response.text()).then((body) => {
                 // console.log("url response:%s", url);
                 // console.log(body);
                 let html = markdown.toHTML(body);
-                console.log(html);
+                // console.log(html);
                 this.setState({
                     html: {
                         __html: html
@@ -47,7 +47,7 @@ class Doc extends Component {
                 })
                 let tree = markdown.parse(body);
                 this.parseMdTree(tree);
-                console.log(tree);
+                // console.log(tree);
                 //document.body.innerHTML = body
             })
         }
@@ -59,7 +59,7 @@ class Doc extends Component {
             // route components are rendered with useful information, like URL params
             name: name
         });
-        this.loadMarkdown(name)
+        this.loadMd(name)
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -73,14 +73,14 @@ class Doc extends Component {
                 // route components are rendered with useful information, like URL params
                 name: name
             })
-            this.loadMarkdown(name)
+            this.loadMd(name)
             // console.log('param:'+nextProps.params.name); console.log(this.state.name);
             rs = false;
         } else {
             rs = true;
 
         }
-        console.log("update : %s", rs);
+        // console.log("update : %s", rs);
         return rs;
     }
 
