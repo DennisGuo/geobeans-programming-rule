@@ -1,5 +1,23 @@
 import React, {Component} from 'react';
 
+window.zenscroll = require('zenscroll/zenscroll.js');
+window.getMarkdownBodyByText = (text)=>{
+    let container = document.getElementById('markdown-body');
+    let childs = container.children;
+    let node = container;
+    for(let i=0;i<childs.length;i++){
+        let el = childs[i];
+        if(el.innerText === text){
+            node = el;
+            break;
+        }
+    }
+    console.log(node);
+    return node;
+};
+/**
+ * 目录
+ */
 class DocArchor extends Component {
     constructor(props) {
         super(props);
@@ -36,7 +54,9 @@ class DocArchor extends Component {
                 .map((key) => {
                     let child = json[key];
                     ul.push("<li>");
-                    ul.push(key.split("@")[1]);
+                    let text = key.split("@")[1];
+                    let link = '<a href="javascript:zenscroll.createScroller(document.getElementById(\'main-content\'),500,30).to(getMarkdownBodyByText(\''+text+'\'))">'+text+'</a>';
+                    ul.push(link);
                     if (child) {
                         ul.push(this.parseArchorUl(child));
                     }
@@ -68,17 +88,9 @@ class DocArchor extends Component {
         let archor = this.props.archor;
         this.parseArchor(archor);
     }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log("next_prop:\n%s ; next_state:\n%s", JSON.stringify(nextProps.archor), JSON.stringify(nextState.ul));
-
-        if (!nextProps.archor && !nextState.ul) 
-            return false;
-        
+    componentWillReceiveProps(nextProps){
         let archor = nextProps.archor;
         this.parseArchor(archor);
-
-        return true;
     }
 
     render() {

@@ -2,8 +2,44 @@
   .mdl-layout__header .mdl-navigation{
     display: none;
   }
+  .mdl-layout__header .app-tabs-bar .mdl-navigation{
+    display: block;
+  }
 }
-.not-found .mdl-card__title {
+@media screen and (max-width: 1024px){
+  .app-tabs-bar.mdl-layout__header-row ,
+  .app-tabs-bar.mdl-layout__header-row .mdl-navigation,
+  .app-tabs-bar.mdl-layout__header-row .mdl-navigation__link{
+    height:48px;
+    line-height: 48px;
+  }
+}
+
+.mdl-layout__header .mdl-navigation__link.is-active{
+  background-color: rgb(41, 57, 148);
+}
+.app-tabs-bar.mdl-layout__header-row {
   color:#fff;
   background: rgb(41, 57, 148);
+}
+.app-tabs-bar.mdl-layout__header-row ,
+.app-tabs-bar.mdl-layout__header-row .mdl-navigation__link{
+  height:48px;
+  line-height: 48px;
+}
+.app-tabs-bar .mdl-navigation__link{
+  position: relative;
+}
+.app-tabs-bar .mdl-navigation__link.is-active:after{
+    height: 2px;
+    width: 100%;
+    display: block;
+    content: " ";
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background: #ff4081;
+    -webkit-animation: border-expand .2s cubic-bezier(.4,0,.4,1).01s alternate forwards;
+    animation: border-expand .2s cubic-bezier(.4,0,.4,1).01s alternate forwards;
+    transition: all 1s cubic-bezier(.4,0,1,1);
 }

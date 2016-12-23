@@ -1,9 +1,23 @@
-blockquote:before,
-blockquote:after{
+@media (min-width:840px){
+    .doc-archor{
+        position: fixed;
+        top:130px;
+    }
+}
+.markdown-body blockquote:before,
+.markdown-body blockquote:after{
     content:'';
 }
 .doc-archor li{
     list-style:none;
+}
+.doc-archor a{
+    text-decoration: none;
+    color:#232323;
+}
+.doc-archor a:hover,
+.doc-archor a.active{
+    color:#ff4081;
 }
 .doc-archor ul{
     padding-left:1em;

@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.8.4"
+    "react-scripts": "0.8.4",
+    "redux-logger": "^2.7.4"
   },
   "dependencies": {
     "fetch": "^1.1.0",
@@ -16,7 +17,8 @@
     "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
     "redux": "^3.6.0",
-    "whatwg-fetch": "^2.0.1"
+    "whatwg-fetch": "^2.0.1",
+    "zenscroll": "^3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
