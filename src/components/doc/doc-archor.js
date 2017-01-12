@@ -39,7 +39,7 @@ class DocArchor extends Component {
                 let sub = archor.slice(i + 1);
                 obj[preLevel + "." + i + "@" + title] = this.parseArchorJson(sub, level);
                 tmpLevel = level;
-            } else if (level - tmpLevel < 0) {
+            } else if (level - tmpLevel <= 0) {
                 break;
             }
         }

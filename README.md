@@ -12,6 +12,12 @@
 /public/docs
 ```
 
+现有的规则如下：
+
+- [Java 开发规范](./public/docs/backend/java.md)
+- [Android 开发规范](./public/docs/app/android.md)
+- [Angular1.x 开发规范](./public/docs/front/angular-v1.md)
+
 ## 如何使用？
 
 ```shell

@@ -14,6 +14,7 @@ class Doc extends Component {
     constructor(props) {
         super(props);
         this.state = {};
+        this.loading = false;
     }
 
     parseMdTree(tree) {
@@ -31,13 +32,14 @@ class Doc extends Component {
         this.setState({archor: archor});
     }
 
-    loadMd(name) {
-        if (name) {
-            let url = '/docs/' + name;
+    loadMd(type,name) {
+        if (name && !this.loading) {
+            this.loading = true;
+            let url = '/docs/' + type+"/"+name;
             // console.log("fetch:%s", url);
             fetch(url).then((response) => response.text()).then((body) => {
                 // console.log("url response:%s", url); console.log(body);
-                let html = markdown.toHTML(body);
+                let html = markdown.toHTML(body,"Maruku");
 
                 // console.log(html);
                 this.setState({
@@ -48,6 +50,7 @@ class Doc extends Component {
                 let tree = markdown.parse(body);
                 this.parseMdTree(tree);
                 // console.log(tree); document.body.innerHTML = body
+                this.loading = false;
             })
         }
     }
@@ -59,11 +62,11 @@ class Doc extends Component {
     }
 
     handleDoc(type, name) {
-        this.setState({
-            // route components are rendered with useful information, like URL params
-            name: name
-        });
-        this.loadMd(name)
+        // this.setState({
+        //     // route components are rendered with useful information, like URL params
+        //     name: name
+        // });
+        this.loadMd(type,name)
         
         this
             .props
