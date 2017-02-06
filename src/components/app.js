@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+import {Link } from 'react-router';
 import {connect} from 'react-redux';
+import axios from 'axios';
 
+import News from './news'
 import './app.css';
 
 /**
@@ -11,13 +13,10 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      news:[]
+    };
     this.title = "Geobeans 编程规则";
-
-
-    // this.handleClickLink = this
-    //   .handleClickLink
-    //   .bind(this);
   }
 
   getLinks(type) {
@@ -59,12 +58,46 @@ class App extends Component {
     let name = this.props.docName;
     // console.log("componentDidMount prop[type=%s,name=%s]",type,name);
     this.handleParam(type,name);
+
+    this.loadNews();
   }
+
 
   componentWillReceiveProps(nextProps) {
      let type = nextProps.docType;
      let name = nextProps.docName;
      this.handleParam(type,name)
+  }
+
+  loadNews(){
+    this.loadNewsOfCategory('java');
+  }
+
+  loadNewsOfCategory(name){
+    let java = 'http://feed.cnblogs.com/blog/sitecateogry/'+name+'/rss';
+    this.loadRSS(java).then((res)=>{
+      let data = res.data;
+      console.log(data);
+      let arr = data.feed.entry;
+      arr.map((item)=>{
+        item.cat = name;
+        return item;
+      })
+      this.setState({
+        news:this.state.news.concat(arr)
+      })
+    })  
+  }
+
+  loadRSS(rss){
+    console.log("load rss data : " + rss);
+    return axios.get('http://ciyuer.com:7100/proxy/' + encodeURIComponent(rss));
+  }
+
+  backHome(){
+    //hashHistory.push('/');
+    console.log("backhome. / ");
+    window.location.hash = "/";
   }
 
 
@@ -74,7 +107,7 @@ class App extends Component {
         <header className="mdl-layout__header mdl-layout__header--waterfall mdl-layout__header--waterfall-hide-top">
 
           <div className="mdl-layout__header-row">
-            <span className="mdl-layout-title"> {this.title}</span>
+            <span className="mdl-layout-title" onClick={this.backHome}> {this.title}</span>
             <div className="mdl-layout-spacer"></div>
             <nav className="mdl-navigation">
               {this.state.links}
@@ -101,7 +134,11 @@ class App extends Component {
         </div>
 
         <main className="mdl-layout__content" id="main-content">
-            {this.props.children}
+
+            {
+              this.props.children ? this.props.children :
+              <News news={this.state.news}/>
+            }
         </main>
       </div>
     );

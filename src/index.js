@@ -27,7 +27,6 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory} routes={routes} />
   </Provider>
-
   ,
   document.getElementById("root")
 );
