@@ -13,13 +13,13 @@
 
 - 使用Intellij IDEA 作为IDE
 
-![Intellij IDEA](/images/java_intellij.png)
+![Intellij IDEA](http://rule.ciyuer.com/images/java_intellij.png)
 
 ### 构建工具
 
 - 使用`gradle`进行项目构建
 
-![gradle](/images/java_gradle.jpg){: width="120"}
+![gradle](http://rule.ciyuer.com/images/java_gradle.jpg){: width="120"}
 
 - `gradle` 配置结构
 
@@ -35,17 +35,17 @@ maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
 
 - `maven.aliyun.com` 的速度比较快
 
-![gradle config](/images/java_gradle_config.png){: width="600"}
+![gradle config](http://rule.ciyuer.com/images/java_gradle_config.png){: width="600"}
 
 ### 项目结构
 
 - 以`.war`打包方式进行部署的项目开发结构
 
-![war](/images/java_folder_war.png)
+![war](http://rule.ciyuer.com/images/java_folder_war.png)
 
 - 以`.jar`打包方式进行部署的项目开发结构
 
-![jar](/images/java_folder_jar.png)
+![jar](http://rule.ciyuer.com/images/java_folder_jar.png)
 
 ## 分包结构
 
@@ -53,7 +53,7 @@ maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
 - 遵循`就近`最快找到相关资源原则
 - 按`模块分包`，在包内进行`类分层`
 
-![package](/images/java_package.png)
+![package](http://rule.ciyuer.com/images/java_package.png)
 
 ## 常用框架选型
 
