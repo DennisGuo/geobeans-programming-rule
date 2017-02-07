@@ -43,3 +43,8 @@ npm run build
 ### 效果图
 
 ![http://p1.bqimg.com/567571/bcd613976c736b35.png](http://p1.bqimg.com/567571/bcd613976c736b35.png)
+
+### 更新说明
+
+**2017-02-07**
+- 增加了首页的新闻列表
