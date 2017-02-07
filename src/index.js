@@ -13,6 +13,7 @@ import 'material-design-lite/material.css'
 import 'material-design-lite/material.js'
 
 import './index.css';
+import './components/app.css';
 
 // To add to window
 if (!window.Promise) {

@@ -46,3 +46,9 @@
 .mdl-layout-title{
   cursor: pointer;
 }
+.mdl-card{
+  min-height:auto;
+}
+a{
+  text-decoration: none;
+}

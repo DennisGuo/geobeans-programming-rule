@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import {Link } from 'react-router';
 import {connect} from 'react-redux';
-import axios from 'axios';
 
 import News from './news'
-import './app.css';
 
 /**
  * 应用APP
@@ -13,10 +11,9 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      news:[]
-    };
+    this.state = {};
     this.title = "Geobeans 编程规则";
+    this.backHome = this.backHome.bind(this);
   }
 
   getLinks(type) {
@@ -58,8 +55,6 @@ class App extends Component {
     let name = this.props.docName;
     // console.log("componentDidMount prop[type=%s,name=%s]",type,name);
     this.handleParam(type,name);
-
-    this.loadNews();
   }
 
 
@@ -69,35 +64,18 @@ class App extends Component {
      this.handleParam(type,name)
   }
 
-  loadNews(){
-    this.loadNewsOfCategory('java');
-  }
-
-  loadNewsOfCategory(name){
-    let java = 'http://feed.cnblogs.com/blog/sitecateogry/'+name+'/rss';
-    this.loadRSS(java).then((res)=>{
-      let data = res.data;
-      console.log(data);
-      let arr = data.feed.entry;
-      arr.map((item)=>{
-        item.cat = name;
-        return item;
-      })
-      this.setState({
-        news:this.state.news.concat(arr)
-      })
-    })  
-  }
-
-  loadRSS(rss){
-    console.log("load rss data : " + rss);
-    return axios.get('http://ciyuer.com:7100/proxy/' + encodeURIComponent(rss));
-  }
+ 
 
   backHome(){
     //hashHistory.push('/');
-    console.log("backhome. / ");
+    // console.log("backhome. / ");
+    setTimeout(()=>{
+      this.refreshLinks(null);
+      this.setState({tabs:null});
+    },100)
+    
     window.location.hash = "/";
+  
   }
 
 
@@ -134,10 +112,8 @@ class App extends Component {
         </div>
 
         <main className="mdl-layout__content" id="main-content">
-
             {
-              this.props.children ? this.props.children :
-              <News news={this.state.news}/>
+              this.props.children ? this.props.children : <News/>
             }
         </main>
       </div>
