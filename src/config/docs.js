@@ -4,6 +4,18 @@ const docs = [
     type: 'front',
     docs: [
       {
+        file: 'javascript.md',
+        name: "Javascript"
+      },
+      {
+        file: 'css.md',
+        name: "CSS"
+      },
+      {
+        file: 'html.md',
+        name: "HTML"
+      },
+      {
         file: 'angular-v1.md',
         name: "AngularJS V1.x"
       }
