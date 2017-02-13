@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link } from 'react-router';
 import {connect} from 'react-redux';
 
-import News from './news'
+import News from './news/news'
 
 /**
  * 应用APP

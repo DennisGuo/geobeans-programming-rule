@@ -1,0 +1,20 @@
+[
+    ["Learn By Coding", "https://www.codeschool.com/"],
+    ["Java美眉", "http://www.javamm.com/#"],
+    ["注意Hibernate4在开发当中的一些改变", "http://hi.baidu.com/austincao/item/fc9907da3d854e44fa576861"],
+    ["[#DBCP-301] maxOpenPreparedStatements needs a better default or at least better documentation.", "https://issues.apache.org/jira/browse/DBCP-301"],
+    ["在Struts2中使用poi进行excel操作下载的时候报getOutputStream() has already been called for this response 错误", "http://blog.163.com/huiping_z/blog/static/80541312201121295848122/"],
+    ["Java header中content-disposition用法详细", "http://www.qianshoublog.com/post/4837.html"],
+    ["Exception loading sessions from persistent storage (tomcat异常)", "http://lichen.blog.51cto.com/697816/157078"],
+    ["Spring mvc中@RequestMapping 6个基本用法小结", "http://my.oschina.net/u/232796/blog/108859"],
+    ["黑马程序员-Java基础加强-Java高新技术", "http://www.cnblogs.com/jbelial/archive/2013/06/03/3108129.html"],
+    ["IBatis (MyBatis): Working with Stored Procedures", "http://java.dzone.com/articles/ibatis-mybatis-working-stored"],
+    ["前后端完全分离之API设计", "http://arccode.net/2015/04/18/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AE%8C%E5%85%A8%E5%88%86%E7%A6%BB%E4%B9%8BAPI%E8%AE%BE%E8%AE%A1/"],
+    ["理解OAuth 2.0 - 阮一峰的网络日志", "http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html"],
+    ["ProActive - Professional Open Source Middleware for Parallel, Distributed, Multi-core Programming", "http://proactive.activeeon.com/index.php"],
+    ["阿里面试回来，想和Java程序员谈一谈 - 简书", "http://www.jianshu.com/p/5681a1f0aad6?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io"],
+    ["JAX-WS Hello World Example – RPC Style", "https://www.mkyong.com/webservices/jax-ws/jax-ws-hello-world-example/"],
+    ["Spring REST API + OAuth2 + AngularJS", "http://www.baeldung.com/rest-api-spring-oauth2-angularjs"],
+    ["jndi使用druid,在tomcat中配置druid监控", "http://blog.csdn.net/shenyunsese/article/details/53044142"],
+    ["Activemq消息确认机制", "http://blog.csdn.net/czp11210/article/details/47022639"]
+]

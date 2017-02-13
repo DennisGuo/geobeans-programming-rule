@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import {markdown} from 'markdown';
 import {connect} from 'react-redux';
+import marked from 'marked';
 
 import {setDocName, setDocType} from '../../store/actions';
 import DocArchor from './doc-archor'
 
+import 'highlight.js/styles/default.css'
 import 'github-markdown-css/github-markdown.css'
 import './doc.css'
 /**
@@ -39,20 +41,36 @@ class Doc extends Component {
             // console.log("fetch:%s", url);
             fetch(url).then((response) => response.text()).then((body) => {
                 // console.log("url response:%s", url); console.log(body);
-                let html = markdown.toHTML(body,"Maruku");
-
-                // console.log(html);
-                this.setState({
-                    html: {
-                        __html: html
-                    } //React.createElement("div",[],html)
-                })
+                this.renderHtml(body);
+                
                 let tree = markdown.parse(body);
                 this.parseMdTree(tree);
                 // console.log(tree); document.body.innerHTML = body
                 this.loading = false;
             })
         }
+    }
+
+    renderHtml(body){
+        
+        // let html = markdown.toHTML(body,"Maruku");
+       
+        // Synchronous highlighting with highlight.js
+        marked.setOptions({
+            highlight: function (code) {
+                return require('highlight.js').highlightAuto(code,['java']).value;
+            }
+        });
+
+        marked(body,(err,content)=>{
+             // console.log(html);
+            this.setState({
+                html: {
+                    __html: content
+                } //React.createElement("div",[],html)
+            })
+        });
+
     }
 
     componentDidMount() {
