@@ -16,9 +16,13 @@
 
 现有的规则如下：
 
+- [HTML 开发规范](./public/docs/front/html.md)
+- [Javascript 开发规范](./public/docs/front/javascript.md)
+- [CSS 开发规范](./public/docs/front/css.md)
+- [Angular1.x 开发规范](./public/docs/front/angular-v1.md)
 - [Java 开发规范](./public/docs/backend/java.md)
 - [Android 开发规范](./public/docs/app/android.md)
-- [Angular1.x 开发规范](./public/docs/front/angular-v1.md)
+
 
 ## 如何使用？
 
@@ -39,7 +43,6 @@ npm start
 # 如果需要线上发布，使用以下命令构建, 构建之后会创建 /build 目录
 npm run build
 
-
 ```
 
 ### 效果图
@@ -47,6 +50,10 @@ npm run build
 ![http://p1.bqimg.com/567571/bcd613976c736b35.png](http://p1.bqimg.com/567571/bcd613976c736b35.png)
 
 ### 更新说明
+
+**2017-02-14**
+- 增加了前端和android的规范文档
+- 增加了Google Analysis脚本统计访问
 
 **2017-02-07**
 - 增加了首页的新闻列表
