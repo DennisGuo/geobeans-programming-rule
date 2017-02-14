@@ -12,7 +12,7 @@ window.getMarkdownBodyByText = (text)=>{
             break;
         }
     }
-    console.log(node);
+    //console.log(node);
     return node;
 };
 /**
@@ -55,7 +55,7 @@ class DocArchor extends Component {
                     let child = json[key];
                     ul.push("<li>");
                     let text = key.split("@")[1];
-                    let link = '<a href="javascript:zenscroll.createScroller(document.getElementById(\'main-content\'),500,30).to(getMarkdownBodyByText(\''+text+'\'))">'+text+'</a>';
+                    let link = '<a href="javascript:(function(){zenscroll.createScroller(document.getElementById(\'main-content\'),500,30).to(getMarkdownBodyByText(\''+text+'\'))}());">'+text+'</a>';
                     ul.push(link);
                     if (child) {
                         ul.push(this.parseArchorUl(child));

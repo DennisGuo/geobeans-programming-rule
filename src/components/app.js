@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.title = "Geobeans 编程规则";
+    this.title = "GeoBeans 编程规则";
     this.backHome = this.backHome.bind(this);
   }
 
