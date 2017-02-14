@@ -2,7 +2,6 @@
   "name": "geobeans-gropramming-rule",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://github.com/DennisGuo/geobeans-programming-rule",
   "devDependencies": {
     "react-scripts": "0.8.4",
     "redux-logger": "^2.7.4"
