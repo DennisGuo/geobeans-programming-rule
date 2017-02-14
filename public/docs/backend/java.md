@@ -222,7 +222,7 @@ public class SavingsAccount{}
 
 ### 变量的命名
 
-- 类变量，普通变量 字段采用完整的英文描述，第一个字母小写，任何中间单词的首字大写，并且指出完整含义。如：
+类变量，普通变量 字段采用完整的英文描述，第一个字母小写，任何中间单词的首字大写，并且指出完整含义。如：
 
 ```java
 // 类变量
@@ -231,24 +231,22 @@ private String firstName;
 private String lastName;
 ```
 
-- Static Final 变量的名字应该都大写，单词之间用下划线分隔，并且指出完整含义。如：
+Static Final 变量的名字应该都大写，单词之间用下划线分隔，并且指出完整含义。如：
 
 ```java
 public static final String COLOR_RED = "#FF0000"; // 红色
 public static final String COLOR_WHITE = "#FFFFFF"; // 白色
 ```
 
-### 数组的命名
-
-- 数组应该总是用下面的方式来命名：
+数组应该总是用下面的方式来命名：
 
 ```java
 private byte[] buffer; // 不要使用 byte buffer[];
 ```
 
-### 方法的参数命名
+方法的参数命名
 
-- 使用有意义的参数命名，如果可能的话，使用和要赋值的字段一样的名字。 如：
+使用有意义的参数命名，如果可能的话，使用和要赋值的字段一样的名字。 如：
 
 ```java
 private int size;
@@ -258,15 +256,68 @@ public SetCounter(int size){
 }
 ```
 
-### 组件/部件命名
+### 类后缀命名
 
--  使用完整的英文描述来说明组件的用途，末端应接上组件类型。 如：
+使用完整的英文描述来说明组件的用途，末端应接上组件类型。 如：
 
 ```java
 Button okButton;
 List customerList;
 Menu fileMenu 
 ```
+
+类名往往用不同的后缀表达额外的意思，如下表：
+
+| 后缀名   |	意义  |	举例  |
+|----------|--------|---------|
+| Service	| 表明这个类是个服务类，里面包含了给其他类提同业务服务的方法	| PaymentOrderService |
+| Impl	| 这个类是一个实现类，而不是接口	| PaymentOrderServiceImpl |
+| Inter	| 这个类是一个接口	| LifeCycleInter |
+| Dao	| 这个类封装了数据访问方法	| PaymentOrderDao |
+| Action	| 直接处理页面请求，管理页面逻辑了类	| UpdateOrderListAction |
+| Listener| 	响应某种事件的类	| PaymentSuccessListener |
+| Event	| 这个类代表了某种事件	| PaymentSuccessEvent |
+| Servlet	| 一个Servlet	| PaymentCallbackServlet |
+| Factory	| 生成某种对象工厂的类	| PaymentOrderFactory |
+| Adapter	| 用来连接某种以前不被支持的对象的类	| DatabaseLogAdapter |
+| Job	| 某种按时间运行的任务	| PaymentOrderCancelJob |
+| Wrapper	| 这是一个包装类，为了给某个类提供没有的能力	| SelectableOrderListWrapper |
+| Bean	| 这是一个POJO| MenuStateBean |
+
+### 方法名前缀
+
+首字母小写，如 addOrder() 不要 AddOrder()
+动词在前，如 addOrder()，不要 orderAdd()
+动词前缀往往表达特定的含义，如下表：
+
+|   前缀名 |	意义  |	举例  |
+|----------|--------|---------|
+| create	| 创建	| createOrder() |
+| delete	| 删除	| deleteOrder() |
+| add	| 创建，暗示新创建的对象属于某个集合	| addPaidOrder() |
+| remove	| 删除| 	removeOrder() |
+| init或则initialize	| 初始化，暗示会做些诸如获取资源等特殊动作	| initializeObjectPool |
+| destroy	| 销毁，暗示会做些诸如释放资源的特殊动作	| destroyObjectPool |
+| open	| 打开	| openConnection() |
+| close	| 关闭| 	closeConnection() |
+| read	| 读取	| readUserName() |
+| write	| 写入	| writeUserName() |
+| get	| 获得	| getName() |
+| set	| 设置	| setName() |
+| prepare	| 准备	| prepareOrderList() |
+| copy	| 复制	| copyCustomerList() |
+| modity	| 修改	| modifyActualTotalAmount() |
+| calculate	| 数值计算	| calculateCommission() |
+| do	| 执行某个过程或流程	| doOrderCancelJob() |
+| dispatch	| 判断程序流程转向	| dispatchUserRequest() |
+| start	| 开始	| startOrderProcessing() |
+| stop	| 结束	| stopOrderProcessing() |
+| send	| 发送某个消息或事件	| sendOrderPaidMessage() |
+| receive	| 接受消息或时间	| receiveOrderPaidMessgae() |
+| respond	| 响应用户动作	| responseOrderListItemClicked() |
+| find	| 查找对象	| findNewSupplier() |
+| update	| 更新对象	| updateCommission() |
+
 
 ### 其他
 
@@ -289,7 +340,7 @@ Menu fileMenu
 缩进应该是每行4个空格. 不要在源文件中保存Tab字符. 在使用不同的源代码管理工具时Tab字符将因为用户设置的不同而扩展为不同的宽度. 
 <img src="http://p1.bqimg.com/567571/0f86b46fc1aa33fd.png"/>
 
-### `{}` 花括号
+### 花括号
 `{}` 中的语句应该单独作为一行. 例如, 下面的第1种写法是错误的, 第2种写法是正确的: 
 ```java
 // 错误, { 和 } 在同一行 
@@ -302,16 +353,23 @@ if (i>0) {
 - `}` 语句永远单独作为一行
 - `}` 语句应该缩进到与其相对应的 `{` 那一行相对齐的位置
 
-### `()` 括号
+### 小括号
 
 不要在语句中使用无意义的括号. 括号只应该为达到某种目的而出现在源代码中。
 下面的例子说明错误和正确的用法: 
 ```java
-if ((I) = 42)  // 错误 - 括号毫无意义 
-if ((I == 42) or (J == 42)) // 正确 - 的确需要括号 
+if ((i) = 42)  // 错误 - 括号毫无意义 
+if ((i == 42) or (j == 42)) // 正确 - 的确需要括号 
 ```
 
 ## Javadoc 文档注释
+
+- 注释宜少而精，不宜多而滥，更不能误导
+- 命名达意，结构清晰， 类和方法等责任明确，往往不需要，或者只需要很少注释，就可以让人读懂；相反，代码混乱，再多的注释都不能弥补。所以，应当先在代码本身下功夫。
+- 不能正确表达代码意义的注释，只会损害代码的可读性。
+- 过于详细的注释，对显而易见的代码添加的注释，罗嗦的注释，还不如不写。
+- 注释要和代码同步，过多的注释会成为开发的负担
+- 注释不是用来管理代码版本的，如果有代码不要了，直接删除，svn会有记录的，不要注释掉，否则以后没人知道那段注释掉的代码该不该删除。
 
 > 一个很好的可遵循的有关注释的经验法则是：问问你自己，你如果从未见过这段代码，要在合理的时间内有效地明白这段代码，你需要哪些信息。
 
@@ -368,3 +426,131 @@ if ((I == 42) or (J == 42)) // 正确 - 的确需要括号
     } 
     ```
     这样在数据库设计更改或查询的SQL语句发生变化时，不会影响到程序的执行。 
+
+
+- 使用log而不是System.out.println()
+
+    log可以设定级别，可以控制输出到哪里，容易区分是在代码的什么地方打印的，而System.out.print则不行。而且，System.out.print的速度很慢。所以，除非是有意的，否则，都要用log。至少在提交到svn之前把System.out.print换成log。
+
+-  每个if while for等语句，都不要省略大括号{}
+
+    看下面的代码：
+    ```java
+    if (a > b)
+    a++;
+    ```
+    如果在以后维护的时候，需要在a > b 时，把b++，一步小心就会写成：
+    ```java
+    if (a > b)
+    a++;
+    b++;
+    ```
+    这样就错了，因为无论a和b是什么关系，b++都会执行。 如果一开始就这样写：
+    ```java
+    if (a > b) {
+    a++;
+    }
+    ```
+    相信没有哪个笨蛋会把b++添加错的。而且，这个大括号使作用范围更明显，尤其是后面那行很长要折行时。
+
+- 善用TODO:
+
+    在代码中加入 //TODO: ，大部分的ide都会帮你提示，让你知道你还有什么事没有做。比如：
+    ```java
+    if (order.isPaid()) {
+        //TODO: 更新订单
+    }    
+    ```
+- 不要再对boolean值做true false判断
+
+    比如：
+    ```java
+    if (order.isPaid() == true) {
+    // Do something here
+    }
+    ```
+    不如写成：
+    ```java
+    if (order.isPaid()) {
+    //Do something here
+    }
+    ```
+    后者读起来就很是 if order is paid, .... 要比 if order's isPaid method returns true, … 更容易理解。
+
+- 程序职责单一
+
+    关注点分离是软件开发的真理。  
+    每个方法尽快控制代码不要超过20行。  
+    人类自所以能够完成复杂的工作，就是因为人类能够将工作分解到较小级别的任务上，在做每个任务时关注更少的东西。让程序单元的职责单一，可以使你在编写这段程序时关注更少的东西，从而降低难度，减少出错。
+
+- 尽量不要用参数来带回方法运算结果
+
+    比如：
+    ```java
+    public void calculate(Order order) {
+        int result = 0;
+        //do lots of computing and store it in the result
+        order.setResult(result);
+    }
+
+    public void action() {
+        order = orderDao.findOrder();
+        calculate(order);
+        // do lots of things about order
+    }
+    ```
+    例子中calculate方法通过传入的order对象来存储结果， 不如如下写：
+    ```java
+    public int calculate(Order order) {
+        int result = 0;
+        //do lots of computing and store it in the result
+        return result;
+    }
+
+    public void action() {
+        order = orderDao.findOrder();
+        order.setResult(calculate(order));
+        // do lots of things about order
+    }    
+    ```
+- 缩小变量的作用域
+
+    能用局部变量的，不要使用实例变量，能用实例变量的，不要使用类变量。变量的生存期越短，以为着它被误用的机会越小，同一时刻程序员要关注的变量的状态越少。实例变量和类变量默认都不是线程安全的，局部变量是线程安全的。比如如下代码：
+    ```java
+    public class OrderPayAction{
+        private Order order;
+
+        public void doAction() {
+            order = orderDao.findOrder();
+            doJob1();
+            doJob2();
+        }
+
+        private void doJob1() {
+            doSomething(order);
+        }
+
+        private void doJob2() {
+            doOtherThing(order);
+        }
+    }
+    ```
+    上例中order只不过担当了在方法间传递参数之用，用下面的方法更好：
+    ```java
+    public class OrderPayAction{
+
+        public void doAction() {
+            Order order = orderDao.findOrder();
+            doJob1(order);
+            doJob2(order);
+        }
+
+        private void doJob1(Order order) {
+            doSomething(order);
+        }
+
+        private void doJob2(Order order) {
+            doOtherThing(order);
+        }
+    }    
+    ```

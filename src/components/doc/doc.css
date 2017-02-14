@@ -1,9 +1,9 @@
-@media (min-width:840px){
-    .doc-archor{
-        position: fixed;
-        top:130px;
-    }
+
+.is-casting-shadow.is-compact+.mdl-layout__drawer+.mdl-layout__content .doc-archor{
+    position: fixed;
+    top:80px;
 }
+
 .markdown-body blockquote:before,
 .markdown-body blockquote:after{
     content:'';

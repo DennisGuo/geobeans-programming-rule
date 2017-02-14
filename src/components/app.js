@@ -69,13 +69,14 @@ class App extends Component {
   backHome(){
     //hashHistory.push('/');
     // console.log("backhome. / ");
-    setTimeout(()=>{
-      this.refreshLinks(null);
-      this.setState({tabs:null});
-    },100)
+    // setTimeout(()=>{
+    //   this.refreshLinks(null);
+    //   this.setState({tabs:null});
+    // },100)
     
-    window.location.hash = "/";
-  
+    // window.location.hash = "/";
+    //browserHistory.push('/doc/front/javascript.md');
+    window.location.hash='/doc/front/javascript.md';
   }
 
 
@@ -85,7 +86,7 @@ class App extends Component {
         <header className="mdl-layout__header mdl-layout__header--waterfall mdl-layout__header--waterfall-hide-top">
 
           <div className="mdl-layout__header-row">
-            <span className="mdl-layout-title" onClick={this.backHome}> {this.title}</span>
+            <span className="mdl-layout-title" onClick={this.backHome}> {this.title}  </span>
             <div className="mdl-layout-spacer"></div>
             <nav className="mdl-navigation">
               {this.state.links}

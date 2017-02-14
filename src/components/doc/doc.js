@@ -7,6 +7,7 @@ import {setDocName, setDocType} from '../../store/actions';
 import DocArchor from './doc-archor'
 
 import 'highlight.js/styles/default.css'
+import 'highlight.js/styles/idea.css'
 import 'github-markdown-css/github-markdown.css'
 import './doc.css'
 /**
@@ -57,8 +58,8 @@ class Doc extends Component {
        
         // Synchronous highlighting with highlight.js
         marked.setOptions({
-            highlight: function (code) {
-                return require('highlight.js').highlightAuto(code,['java']).value;
+            highlight: function (code) { //['java,javascript,html,css']
+                return require('highlight.js').highlightAuto(code).value;
             }
         });
 

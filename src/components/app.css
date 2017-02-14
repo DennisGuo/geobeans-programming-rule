@@ -13,6 +13,9 @@
     height:48px;
     line-height: 48px;
   }
+  .mdl-layout__header .app-tabs-bar .mdl-navigation{
+    display: flex;
+  }
 }
 
 .mdl-layout__header .mdl-navigation__link.is-active{

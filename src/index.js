@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import Router from 'react-router/lib/Router'
 import hashHistory from 'react-router/lib/hashHistory'
+// import browserHistory from 'react-router/lib/browserHistory'
 import Promise from 'promise-polyfill';
 
 import store from './store'

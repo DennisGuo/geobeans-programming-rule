@@ -7,8 +7,11 @@ import docs from './config/docs';
 const routes = {
     path: "/",
     component: App,
+    indexRoute:{
+        onEnter:(nextState,replace) => replace('/doc/front/javascript.md')
+    },
     childRoutes: [{
-            path: "/doc/:type(/:name)",
+            path: "/doc(/:type)(/:name)",
             component: Doc,
             onEnter: ({ params }, replace) => {
                 console.log(params);
