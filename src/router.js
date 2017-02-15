@@ -14,7 +14,7 @@ const routes = {
             path: "/doc(/:type)(/:name)",
             component: Doc,
             onEnter: ({ params }, replace) => {
-                console.log(params);
+                // console.log(params);
                 let type = params.type,
                     name = params.name,
                     first = docs[0];

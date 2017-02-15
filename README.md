@@ -51,6 +51,10 @@ npm run build
 
 ### 更新说明
 
+**2017-02-15**
+- 移除`redux-logger`
+- 增加[not-support-ie-alert](https://github.com/DennisGuo/not-support-ie-alert),提示不支持IE9-
+
 **2017-02-14**
 - 增加了前端和android的规范文档
 - 增加了Google Analysis脚本统计访问
